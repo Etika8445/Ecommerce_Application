@@ -4,7 +4,7 @@ import { protect } from '../middleware/authMiddleware.js'
 
 const router = Router()
 
-router.route('/').post(protect,addToCart)     
+router.route('/').post(addToCart)     
 router.route('/:userid/:productid').delete(deleteCartItem)
 router.route('/:id').get(getCart)
 
