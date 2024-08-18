@@ -1,8 +1,6 @@
 import PropTypes from "prop-types";
 import Cookies from 'js-cookie';
 import { useNavigate } from "react-router-dom";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import axios from "axios";
 import {useSelector} from "react-redux";
 import { useDispatch } from "react-redux";
@@ -27,14 +25,11 @@ const Productcard = (props) => {
             'quantity':1,
             'userId': id,
         }
-        console.log(CartInfo);
+        // console.log(CartInfo);
         try {
             const response = await axios.post("https://ecommerce-application-owt9.onrender.com/api/v1/cart", CartInfo);
             dispatch(setprice({productId:props._id, userId:id,subprice:Number(props.price)}));    //updating CartReducer
             console.log(response.data);
-            toast.success("Password or Email Incorrect", {
-                position: "bottom-center",
-              });
         }
         catch (err) {
             console.log('Error is ', err);
@@ -51,7 +46,6 @@ return (
                 <button onClick={addtocart} className="h-9 w-full font-normal mt-2 border-red-500 text-red-500 rounded-md border hover:bg-red-500 hover:text-white text-center" >
                     Add to Cart</button>
             </div>
-        <ToastContainer/>
 
         </div>
     </>
