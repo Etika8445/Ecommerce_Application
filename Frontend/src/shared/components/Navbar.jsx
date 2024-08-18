@@ -24,7 +24,7 @@ const Navbar = () => {
   });
 
   const Logout = async () => {
-   const log = await axios.get(`http://localhost:8080/api/v1/users/logout`, {
+   const log = await axios.get(`https://ecommerce-application-owt9.onrender.com/api/v1/users/logout`, {
     withCredentials: true,
     headers: {
         Cookie:`token=${token}`
