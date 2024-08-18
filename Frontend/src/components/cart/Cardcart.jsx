@@ -2,15 +2,17 @@ import { useState } from "react";
 import PropTypes from "prop-types";
 import axios from "axios";
 import Cookies from 'js-cookie';
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { setprice , removeprice} from "../../Reducers/CartSlice";
 import deletes  from "../../assets/delete.png";
 
 const Cardcart = (props) => {
     const prices=props.product.price;         
     const quantity =props.items.quantity;
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
     const [initquantity, setquantity] = useState(quantity);      //quantity
     const [initprice, setprices] = useState(prices*quantity);    //price
     const dispatch = useDispatch();
@@ -20,7 +22,9 @@ const Cardcart = (props) => {
         if (val === '+' && initquantity < 10) {
             newQuantity = initquantity + 1
         } else if (val === '+' && initquantity === 10) {
-            alert("Quantity exceeded");
+            toast.error("Quantity exceeded", {
+                position: "bottom-center",
+              });
             return;
         } else if (val === '-' && initquantity > 1) {
             newQuantity = initquantity - 1;
@@ -57,7 +61,7 @@ const Cardcart = (props) => {
         }
         else {
             console.log('No token found');
-            navigate('/');
+            // navigate('/');
         }
         const updateData = {
             "userid": props.items.userId,
@@ -104,6 +108,8 @@ const Cardcart = (props) => {
                     <p className="text-slate-600 font-semibold md:font-bold md:text-black">₹ {initprice}</p>
                 </div>
             </div>
+            <ToastContainer/>
+
         </>
     );
 };
