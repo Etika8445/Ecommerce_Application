@@ -7,7 +7,6 @@ import mongoose from "mongoose";
 const addToCart = asyncHandler(async (req, res) => {
   const { productId, quantity ,userId} = req.body;
   console.log(req.body);
-  const userId = userId;
   console.log(userId);
   try {
     let cartItem = await CartItem.findOne({ userId, productId });
