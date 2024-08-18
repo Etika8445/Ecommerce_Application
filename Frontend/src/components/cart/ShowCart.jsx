@@ -13,11 +13,11 @@ const ShowCart = () => {
         const fetchProducts = async () => {
             try {
                 dispatch(clearCart());
-                const response = await axios.get(`http://localhost:8080/api/v1/cart/${id}`);   //get the cart by id
+                const response = await axios.get(`https://ecommerce-application-owt9.onrender.com/api/v1/cart/${id}`);   //get the cart by id
                 const items = response.data;
                 setCartItems(items);
 
-                const productRequests = items.map(item => axios.get(`http://localhost:8080/api/v1/products/${item.productId}`));  //get product by using the id present in the cart
+                const productRequests = items.map(item => axios.get(`https://ecommerce-application-owt9.onrender.com/api/v1/products/${item.productId}`));  //get product by using the id present in the cart
                 const productResponses = await Promise.all(productRequests);
 
                 const productMap = productResponses.reduce((map, response, index) => {
