@@ -12,6 +12,9 @@ const SummaryCart = () => {
   const Code= useRef();
   useEffect(() => {
     setprice(totalsubprice);
+    if(CouponNotUsed){
+      setprice(totalsubprice-(0.25*totalsubprice));
+    }
   }, [totalsubprice]);
 
   const applyCoupon=(val)=>{      //called when coupon is applied
@@ -33,6 +36,11 @@ const SummaryCart = () => {
       });
     }
   }
+  const checkout=()=>{    //checkout is called 
+    toast.success("Successfully Completed", {
+      position: "bottom-center",
+    });
+  }
   return (
     <>
     <div className="w-[96%] lg:mr-5 shadow-2xl p-4 m-[2%] border-2 border-gray-100 mt-8">
@@ -49,7 +57,7 @@ const SummaryCart = () => {
         <p className="">Total</p>
         <p>₹ {parseFloat(initprice.toFixed(2))}</p>
         </div>
-        <button className="w-full bg-green-500 hover:bg-green-600 h-8 rounded-2xl text-white font-semibold">CHECKOUT</button>
+        <button className="w-full bg-green-500 hover:bg-green-600 h-8 rounded-2xl text-white font-semibold" onClick={checkout}>CHECKOUT</button>
     </div>
     <ToastContainer/>
     </>
