@@ -41,7 +41,7 @@ const Cardcart = (props) => {
             userId: props.items.userId
         };
         try {
-            const response = await axios.post("http://localhost:8080/api/v1/cart", updateData, {              //adding to the cart
+            const response = await axios.post("https://ecommerce-application-owt9.onrender.com/api/v1/cart", updateData, {              //adding to the cart
                 withCredentials: true,
                 headers: {
                     Cookie:`token=${token}`
@@ -71,7 +71,7 @@ const Cardcart = (props) => {
         console.log(updateData);
         
         try {                                                   //deleted from the cart
-            const response = await axios.delete(`http://localhost:8080/api/v1/cart/${props.items.userId}/${props.product._id}`);
+            const response = await axios.delete(`https://ecommerce-application-owt9.onrender.com/api/v1/cart/${props.items.userId}/${props.product._id}`);
             console.log(response.data);
             dispatch(removeprice({productId:props.product._id,userId:props.items.userId}));
             window.location.reload();
