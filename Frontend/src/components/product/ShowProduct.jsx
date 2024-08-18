@@ -8,7 +8,7 @@ const ShowProduct = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get("http://localhost:8080/api/v1/products");   //getting product
+        const response = await axios.get("https://ecommerce-application-owt9.onrender.com/api/v1/products");   //getting product
         setProductsDetails(response.data.message);
       } catch (err) {
         console.error("Failed to fetch products:", err);
