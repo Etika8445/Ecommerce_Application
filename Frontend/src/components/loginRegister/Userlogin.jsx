@@ -18,7 +18,7 @@ const Userlogin = () => {
         'password':pwdRef.current.value
       }
       try {
-        const response = await axios.post("http://localhost:8080/api/v1/users/login", userInfo);    //checking data of user
+        const response = await axios.post("https://ecommerce-application-owt9.onrender.com/api/v1/users/login", userInfo);    //checking data of user
         if (response.data.success === true) {
           const data = response.data.message;
           console.log(data);
