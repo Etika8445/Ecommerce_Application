@@ -4,7 +4,7 @@ import { protect } from '../middleware/authMiddleware.js'
 
 const router = Router()
 
-router.route('/').get(getProducts).post(protect,addProduct)
+router.route('/').get(getProducts).post(addProduct)
 router.route('/:id').get(getProductById)
 
 export default router
