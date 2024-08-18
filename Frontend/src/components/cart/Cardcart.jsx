@@ -33,7 +33,7 @@ const Cardcart = (props) => {
         }
         else {
             console.log('No token found');
-            navigate('/');
+            // navigate('/');
         }
         const updateData = {
             productId: props.product._id,
