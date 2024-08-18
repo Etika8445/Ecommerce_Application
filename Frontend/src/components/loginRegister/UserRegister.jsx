@@ -17,7 +17,7 @@ const UserRegister = () => {
     };
     console.log(userInfo);
     try { 
-      const response = await axios.post("http://localhost:8080/api/v1/users/register", userInfo);      //sending data 
+      const response = await axios.post("https://ecommerce-application-owt9.onrender.com/api/v1/users/register", userInfo);      //sending data 
       // console.log(response.data)
         if (response.data.success === true) {
           navigate("/");
