@@ -41,12 +41,7 @@ const Cardcart = (props) => {
             userId: props.items.userId
         };
         try {
-            const response = await axios.post("https://ecommerce-application-owt9.onrender.com/api/v1/cart", updateData, {              //adding to the cart
-                withCredentials: true,
-                headers: {
-                    Cookie:`token=${token}`
-                }
-            });
+            const response = await axios.post("https://ecommerce-application-owt9.onrender.com/api/v1/cart", updateData);              //adding to the cart
             console.log(response.data);
             dispatch(setprice({productId:props.product._id,userId:props.items.userId,subprice:prices*newQuantity}));    //updating CartReducer
         }
