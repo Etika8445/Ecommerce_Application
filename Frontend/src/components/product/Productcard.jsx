@@ -29,12 +29,7 @@ const Productcard = (props) => {
         }
         console.log(CartInfo);
         try {
-            const response = await axios.post("https://ecommerce-application-owt9.onrender.com/api/v1/cart", CartInfo, {  
-                withCredentials: true,
-                headers: {
-                    Cookie:`token=${token}`
-                }
-            });
+            const response = await axios.post("https://ecommerce-application-owt9.onrender.com/api/v1/cart", CartInfo);
             dispatch(setprice({productId:props._id, userId:id,subprice:Number(props.price)}));    //updating CartReducer
             console.log(response.data);
             toast.success("Password or Email Incorrect", {
