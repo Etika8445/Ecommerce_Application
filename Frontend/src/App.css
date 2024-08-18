@@ -1,0 +1,21 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+html{
+    position: relative;
+}
+
+.fixed-box {
+    width: 250px; /* Set the fixed width for the boxes */
+    height: 425px; /* Set the fixed height */
+  }
+.toast-message {
+    background: orangered;
+    color: #fff;
+    font-size: 20px;
+    width: 34vw;
+    padding: 30px 20px;
+  }
+  
+  
