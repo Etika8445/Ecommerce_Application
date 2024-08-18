@@ -29,7 +29,7 @@ const Productcard = (props) => {
         }
         console.log(CartInfo);
         try {
-            const response = await axios.post("http://localhost:8080/api/v1/cart", CartInfo, {  
+            const response = await axios.post("https://ecommerce-application-owt9.onrender.com/api/v1/cart", CartInfo, {  
                 withCredentials: true,
                 headers: {
                     Cookie:`token=${token}`
